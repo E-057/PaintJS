@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+     
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+    <script src="js/paint.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+<div id="paint_panel">
+    <canvas id="paint_canvas"></canvas>
+    <div id="setting_panel">
+        <!--保存・背景・リセット-->
+        <div>
+            <div class="btn btn-info btn-lg setting setting_button left">
+                <input id="file_background" class="hidden" name="ufile" type="file" accept="image/jpeg,image/png">
+                <label for="file_background">はいけい</label>
+            </div>
+            <a id="save_image" class="btn btn-lg btn-danger setting setting_button left" href="#" download="web_paint.jpg">ほ ぞ ん</a>
+            <!--<input id="clear_button" type="button" class="setting left btn btn-primary btn-lg setting_button" value="りせっと">-->
+            <div id="clear_button" class="setting left btn btn-primary btn-lg setting_button">さくじょ</div>
+        </div>
+    </div>
+    <div id="color_panel">
+        <!--色-->
+        <div>
+            <input id="color_button_black" type="button" class="setting left btn btn-lg color_button black" value="">
+            <input id="color_button_red" type="button" class="setting left btn btn-lg color_button red" value="">
+            <input id="color_button_blue" type="button" class="setting left btn btn-lg color_button blue" value="">
+            <input id="color_button_yellow" type="button" class="setting left btn btn-lg color_button yellow" value="">
+            <input id="color_button_green" type="button" class="setting left btn btn-lg color_button green" value="">
+            <input id="eraser_button" type="button" class="setting left btn btn-lg eraser_button white" value="けしごむ">
+        </div>
+    </div>
+</div>
+
+<div id="hidden_panel">
+    <div id="warning_message">画面の向きを縦にしてください。</div>
+</div>
+
+</body>
+</html>

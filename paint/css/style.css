@@ -1,0 +1,170 @@
+@charset "UTF-8";
+
+html{
+    touch-action: none;
+}
+
+body {
+    background-color: black;
+    outline:white;
+}
+
+#paint_panel {
+    z-index: 1;
+
+    position: absolute;
+    margin: 0 auto;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 100%;
+
+    background-color: black;
+}
+
+#hidden_panel {
+    z-index: 2;
+
+    position: absolute;
+    margin: 0 auto;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 100%;
+
+    background-color: gray;
+}
+
+#warning_message {
+    z-index: 1;
+
+    font-size: 60px;
+    color: red;
+
+    line-height: 300px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#paint_canvas {
+    z-index: 1;
+
+    position: absolute;
+    margin: 0 auto;
+
+    top: 300px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background-color: white;
+}
+
+#setting_panel {
+    z-index: 1000;
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+    height: 150px;
+    background: rgb(230, 230, 230);
+}
+
+#color_panel {
+    z-index: 1000;
+    position: absolute;
+
+    top: 150px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+    height: 150px;
+    background: rgb(230, 230, 230);
+}
+
+/* 保存・背景ボタン関係 */
+.hidden {
+    display: none;
+}
+
+.setting {
+    height: 150px;
+    line-height: 100px;
+    font-weight: bold;
+    text-align: center;
+    border: white;
+}
+
+.setting_button {
+    width: 33.33%;
+    font-size: 40px;
+}
+
+.space {
+    height: 100px;
+    width: 50px;
+}
+
+.space_lg {
+    height: 100px;
+    width: 100px;
+}
+
+.space_sm {
+    height: 100px;
+    width: 25px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+/* 色設定ボタン関係 */
+.color_button {
+    width: 16.66%;
+}
+
+.red {
+    background: red;
+}
+
+.blue {
+    background: blue;
+}
+
+.yellow {
+    background: yellow;
+}
+
+.green {
+    background: green;
+}
+
+.black {
+    background: black;
+}
+
+.white {
+    background: white;
+}
+
+.eraser_button {
+    width: 16.66%;
+    font-size: 30px;
+}
