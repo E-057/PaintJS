@@ -239,6 +239,11 @@ $(function () {
         window.requestAnimationFrame(orientCheck);
     })();
 
+
+    var orientation = screen.orientation || screen.mozOrientation || screen.msOrientation;
+        
+    alert(orientation.type);
+
     $("#file_background").change(function () {
         var file = this.files[0];
 
