@@ -242,7 +242,7 @@ $(function () {
 
     var orientation = screen.orientation || screen.mozOrientation || screen.msOrientation;
         
-    alert(orientation.type);
+    document.getElementById('warning_message').innerHTML = orientation.type;
 
     $("#file_background").change(function () {
         var file = this.files[0];
