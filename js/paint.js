@@ -6,7 +6,7 @@ var paintManager = (function () {
     const ERASER_MODE = 'destination-out';
 
     const PAINT_LINE_WIDTH = 10;
-    const ERASER_LINE_WIDTH = 20;
+    const ERASER_LINE_WIDTH = 30;
 
     const PAINT_LINE_JOIN = 'round';
     const PAINT_LINE_CAP = 'round';
@@ -215,19 +215,8 @@ var paintManager = (function () {
 })();
 
 $(function () {
-
-    //画面向きのチェック
+    
     (function orientCheck(){
-        /*
-        var orientation = screen.orientation || screen.mozOrientation || screen.msOrientation;
-
-        if (orientation.type === "portrait-primary" || orientation.type === "portrait-secondary") {
-            paintManager.init('paint_panel', 'paint_canvas');
-            $('#hidden_panel').hide();
-        } else {
-            $('#hidden_panel').show();
-        }
-        */
         var angle = screen && screen.orientation && screen.orientation.angle;
 
         if (angle === undefined) {
