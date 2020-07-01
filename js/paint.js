@@ -6,7 +6,7 @@ var paintManager = (function () {
     const ERASER_MODE = 'destination-out';
 
     const PAINT_LINE_WIDTH = 10;
-    const ERASER_LINE_WIDTH = 30;
+    const ERASER_LINE_WIDTH = 40;
 
     const PAINT_LINE_JOIN = 'round';
     const PAINT_LINE_CAP = 'round';
@@ -58,6 +58,7 @@ var paintManager = (function () {
      * @param y
      */
     function _draw(x, y) {
+
         if (!_isDrag) {
             return;
         }
@@ -82,13 +83,12 @@ var paintManager = (function () {
         _lastPosition.y = y;
     }
 
-    function _dragStart(event) {
+    function _dragStart(x, y) {
         _paintContext.beginPath();
         _isDrag = true;
+        _draw(x, y);
     }
-
-    var count = 0;
-
+    
     function _dragEnd(event) {
         _paintContext.closePath();
         _isDrag = false;
@@ -102,10 +102,12 @@ var paintManager = (function () {
 
         // PC
         if(userAgent.indexOf("windows nt") !== -1 || userAgent.indexOf("mac os x") !== -1) {
-            _canvas.addEventListener('mousedown', _dragStart);
+            _canvas.addEventListener('mousedown', function (event) {
+                _dragStart(event.layerX, event.layerY);
+            });
             _canvas.addEventListener('mouseup', _dragEnd);
             _canvas.addEventListener('mouseout', _dragEnd);
-            _canvas.addEventListener('mousemove', (event) => {
+            _canvas.addEventListener('mousemove', function (event) {
                 _draw(event.layerX, event.layerY);
             });
         }
@@ -115,7 +117,7 @@ var paintManager = (function () {
             userAgent.indexOf("ipad") !== -1 || userAgent.indexOf("amazon") !== -1) {
             _canvas.addEventListener('touchstart', _dragStart);
             _canvas.addEventListener('touchend', _dragEnd);
-            _canvas.addEventListener('touchmove', (event) => {
+            _canvas.addEventListener('touchmove', function (event) {
                 event.preventDefault();
                 _draw(event.changedTouches[0].pageX - _canvas.getBoundingClientRect().left, event.changedTouches[0].pageY - _canvas.getBoundingClientRect().top);
             });
