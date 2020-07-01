@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 
 html{
     touch-action: none;
@@ -6,7 +6,9 @@ html{
 
 body {
     background-color: black;
-    outline:white;
+    outline: white;
+    -webkit-touch-callout: none;
+    -webkit-user-select:none;
 }
 
 #paint_panel {
