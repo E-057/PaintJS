@@ -226,10 +226,24 @@ $(function () {
 
     //画面向きのチェック
     (function orientCheck(){
-        //正面設定と現在の向きを取得
+        /*
         var orientation = screen.orientation || screen.mozOrientation || screen.msOrientation;
 
-        if (orientation.type === "portrait-primary") {
+        if (orientation.type === "portrait-primary" || orientation.type === "portrait-secondary") {
+            paintManager.init('paint_panel', 'paint_canvas');
+            $('#hidden_panel').hide();
+        } else {
+            $('#hidden_panel').show();
+        }
+        */
+        var angle = screen && screen.orientation && screen.orientation.angle;
+        if (angle === undefined) {
+            angle = window.orientation;    // iOS用
+        }
+
+        var isPortrait = (angle === 0);
+
+        if (isPortrait) {
             paintManager.init('paint_panel', 'paint_canvas');
             $('#hidden_panel').hide();
         } else {
@@ -238,12 +252,7 @@ $(function () {
 
         window.requestAnimationFrame(orientCheck);
     })();
-
-
-    var orientation = screen.orientation || screen.mozOrientation || screen.msOrientation;
         
-    document.getElementById('warning_message').innerHTML = orientation.type;
-
     $("#file_background").change(function () {
         var file = this.files[0];
 
