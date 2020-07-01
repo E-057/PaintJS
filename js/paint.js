@@ -115,7 +115,10 @@ var paintManager = (function () {
         //タブレット・スマホ
         if(userAgent.indexOf("android") !== -1 || userAgent.indexOf("iphone") !== -1 ||
             userAgent.indexOf("ipad") !== -1 || userAgent.indexOf("amazon") !== -1) {
-            _canvas.addEventListener('touchstart', _dragStart);
+            _canvas.addEventListener('touchstart', function (event) {
+                _dragStart(event.changedTouches[0].pageX - _canvas.getBoundingClientRect().left, event.changedTouches[0].pageY - _canvas.getBoundingClientRect().top);
+            });
+
             _canvas.addEventListener('touchend', _dragEnd);
             _canvas.addEventListener('touchmove', function (event) {
                 event.preventDefault();
