@@ -257,7 +257,7 @@ $(function () {
 
     $('#save_image').on('click', function () {
         var canvas = document.getElementById("paint_canvas");
-        var base64 = canvas.toDataURL("image/jpeg");
+        var base64 = canvas.toDataURL("image/png");
         document.getElementById("save_image").href = base64;
     });
 
