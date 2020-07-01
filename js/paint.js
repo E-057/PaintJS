@@ -240,14 +240,12 @@ $(function () {
             paintManager.init('paint_panel', 'paint_canvas');
             $('#hidden_panel').hide();
         } else {
-            //$('#hidden_panel').show();
+            $('#hidden_panel').show();
         }
 
         window.requestAnimationFrame(orientCheck);
     })();
-
-    $('#hidden_panel').hide();
-
+    
     $("#file_background").change(function () {
         var file = this.files[0];
 
